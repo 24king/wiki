@@ -1,3 +1,18 @@
+---
+layout:default
+title:LIMIX's PKM
+---
+##{{page.title}}
+
+最新文章
+
+<ul>
+{% for post in site.posts%}
+<li>{{post.date | date_to_string}} <a
+href="{{site.baseurl}}{{post.url}}">{{post.title}}</a><li>
+{%endfor%}
+</ul>
+
 # 个人知识管理说明
 
 ## 背景 
