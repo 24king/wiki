@@ -1,66 +1,12 @@
-<!DOCTYPE html>
-<html>
+---
+layout:default
+title:LIMIX's 博客
+---
+<h2>{{page.title}}</h2>
+<p>最新文章</p>
+<ul>
+{%for post in site.posts %}
+<li>{{post.date}date_to_string}}<a href="{{site.baseurl}}{{post.url}}"</a></li>
+{% endfor%}
+</ul>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Wiki : just for personal knowledgement management" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Wiki</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/24king/wiki">View on GitHub</a>
-
-          <h1 id="project_title">Wiki</h1>
-          <h2 id="project_tagline">just for personal knowledgement management</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/24king/wiki/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/24king/wiki/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="wiki" class="anchor" href="#wiki"><span class="octicon octicon-link"></span></a>wiki</h1>
-
-<p>just for personal knowledgement management</p>
-
-<p>在这里留下点脚印什么的,我的目的很简单,有一个自己的私有的个人站点.</p>
-
-<p><a href="index">首页</a></p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Wiki maintained by <a href="https://github.com/24king">24king</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("common");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
-  </body>
-</html>
