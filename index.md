@@ -11,3 +11,5 @@ href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
 {% endfor %}
 </ul>
 
+
+[[ruby]]
