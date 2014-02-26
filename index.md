@@ -1,6 +1,6 @@
 ---
-layout:default
-title:LIMIX's 博客
+layout: default
+title: LIMIX's 博客
 ---
 <h2>{{page.title}}</h2>
 <p>最新文章</p>
