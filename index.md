@@ -3,12 +3,13 @@ layout: default
 title: LIMIX's 博客
 ---
 <h2>{{page.title}}</h2>
-<p>最新文章</p>
+<p>文章列表</p>
 <ul>
 {% for post in site.posts %}
-<li>{{post.date|date_to_string}} <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+<li>{{post.date | date_to_string}} <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
 {% endfor %}
 </ul>
+
 
 <iframe src="https://www.google.com/calendar/embed?src=coollimix%40gmail.com" 
 style="border: 0" width="800" height="600" frameborder="0" scrolling="no">

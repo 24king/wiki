@@ -1,5 +1,7 @@
 ---
 layout: default
+title: helloworld
+tags: hellworld test
 ---
 
 <h2>{{page.title}}</h2>

@@ -1,1 +1,35 @@
-baseurl : 
+# ###########################################################################################
+# The various Markdown renderers supported by Jekyll sometimes have extra options available"
+# 1. Redcarpet"
+# created by limix.2014-03-01: version.0.0.1"
+# care.0.http--[jekyllrb.com/docs/configuration/]"
+# care.1.don't use tab in this file."
+# Jekyll allows you to concoct your sites in any way you can dream up, and it’s thanks to the 
+# powerful and flexible configuration options that this is possible. These options can either 
+# be specified in a _config.yml file placed in your site’s root directory, or can be specified 
+# as flags for the jekyll executable in the terminal"
+# options and flags can be placed in _config.yml or in specified as flags."
+# ###########################################################################################
+
+# =======================1. Global Configuration Options===================================="
+sourece: .
+desitination: ./_site
+plugins: ./_plugins
+layouts: ./_layouts
+safe: true
+include: ['.htaccess']
+exclude: []
+gems: []
+encoding: utf-8
+highlighter: pygments
+# =======================2. Build Command Options==========================================="
+regeneration: true
+future: true
+lsi: false
+# =======================3. Serve Command Options==========================================="
+baseurl: 
+detach: true
+# =======================4. Markdown Options================================================"
+# =======================5. Markdown Options================================================"
+author: limix
+
