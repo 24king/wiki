@@ -32,5 +32,9 @@ detach: true
 # =======================4. Markdown Options================================================"
 # =======================5. Markdown Options================================================"
 author: limix
-shortname: limix
 
+# =======================6. added for comments=============================================="
+comments:
+  provider: duoshuo
+  duoshuo: 
+    short_name: limix
