@@ -19,12 +19,8 @@
 	  <span><a title="subscribe by RSS" class="" href="/feed/">Subscribe</a></span>
 	</nav>
 	<header><h1 title="{{page.title}}{{page.tags}}">{{page.title}}</h1></header>
-	<article class="content"> {{content}} </article>
+	<article class="content">{{content}}</article>
   </div>
-  <footer>
-	<p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2014 - {{site.time | date:"%Y"}} by 
-	<a href="/about/">limix</a><span class="label label-info" id="timeSpan"></span></small></p>
-  </footer>
   <!-- Duoshuo Comment BEGIN -->
   <div class="ds-thread"></div>
   <script type="text/javascript">
@@ -39,6 +35,10 @@
 	})();
   </script>
   <!-- Duoshuo Comment END -->
+  <footer>
+	<p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2014 - {{site.time | date:"%Y"}} by 
+	<a href="/about/">limix</a><span class="label label-info" id="timeSpan"></span></small></p>
+  </footer>
 </div>
 </body>
 </html>
