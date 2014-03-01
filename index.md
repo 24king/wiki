@@ -2,7 +2,7 @@
 layout: default
 title: LIMIX's 博客
 ---
-<h2>{{page.title}}</h2>
+<header><h1>{{page.title}}</h1></header>
 <p>文章列表</p>
 <ul>
 {% for post in site.posts %}
