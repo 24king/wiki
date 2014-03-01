@@ -21,13 +21,25 @@
 	<header><h1 title="{{page.title}}{{page.tags}}">{{page.title}}</h1></header>
 	<article class="content">{{content}}</article>
   </div>
-  <a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a><script
-  type="text/javascript" charset="utf-8"
-  src="http://static.bshare.cn/b/buttonLite.js#uuid=2e6047f1-8d6a-4814-a2f7-dbc6a99261dd&amp;style=1&amp;bp=qqmb,bsharesync,sinaminiblog,qzone,189share,sohuminiblog,renren,xinhuamb,tianya,shouji,ifengmb,neteasemb,qqxiaoyou,kaixin001,weixin,douban,qqim"></script>
-  <footer>
-	<p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>
-	& <a href="http://pages.github.com">GitHub</a> | &copy 2014 - {{site.time | date:"%Y"}} by 
-	<a href="/about/">limix</a><span class="label label-info" id="timeSpan"></span></small></p>
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+  <script type="text/javascript">
+	var duoshuoQuery = {short_name:"limix"};
+	(function() {
+	  var ds = document.createElement('script');
+	  ds.type = 'text/javascript';ds.async = true;
+	  ds.src = 'http://static.duoshuo.com/embed.js'; 
+	  ds.charset = 'UTF-8';
+	  (document.getElementsByTagName('head')[0] 
+	   || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	</script>
+	<!-- Duoshuo Comment END -->
+	<a class="bshareDiv" href="http://www.bshare.cn/share">分享</a><script type="text/javascript" charset="utf-8"
+  	src="http://static.bshare.cn/b/buttonLite.js#uuid=2e6047f1-8d6a-4814-a2f7-dbc6a99261dd&amp;style=1&amp;bp=qqmb,bsharesync,sinaminiblog,qzone,189share,sohuminiblog,renren,xinhuamb,tianya,shouji,ifengmb,neteasemb,qqxiaoyou,kaixin001,weixin,douban,qqim"></script>
+	<footer>
+		<p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | &copy 2014 - {{site.time | date:"%Y"}} by 
+		<a href="/about/">limix</a><span class="label label-info" id="timeSpan"></span></small></p>
   </footer>
 </div>
 </body>
