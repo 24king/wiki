@@ -5,8 +5,10 @@ title: LIMIX's 博客
 <p>文章列表</p>
 <ul>
 {% for post in site.posts %}
-<li>{{post.date | date_to_string}} <a
-href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+<li>{{post.date | date_to_string}} <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+{% endfor %}
+{% for post in site.tags.jekyll %}
+<li>{{post.date | date_to_string}} jekyll <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
 {% endfor %}
 </ul>
 
