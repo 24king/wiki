@@ -21,6 +21,7 @@ include: ['.htaccess']
 exclude: []
 gems: []
 encoding: utf-8
+# code snippet highlighting
 highlighter: pygments
 # =======================2. Build Command Options==========================================="
 regeneration: true
