@@ -5,7 +5,8 @@ title: LIMIX's 博客
 <p>文章列表</p>
 <ul>
 {% for post in site.posts %}
-<li>{{post.date | date_to_string}} <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+<li>{{post.date | date_to_string}} <a
+href="{{site.baseurl}}{{post.url}}">{{post.title}}|{{ page.excerpt | markdownify }} </a></li>
 {% endfor %}
 </ul>
 

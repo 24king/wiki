@@ -30,6 +30,10 @@ lsi: false
 baseurl: 
 detach: true
 # =======================4. Markdown Options================================================"
+# markdown you can set to rdiscount 来作为markdown解析引擎.
+markdown:      kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+textile_ext:   textile
 # =======================5. Markdown Options================================================"
 author: limix
 
