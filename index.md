@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LIMIX's PKM
+needComment: no
 ---
 文章列表
 
