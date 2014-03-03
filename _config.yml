@@ -29,7 +29,7 @@ future: true
 lsi: false
 # =======================3. Serve Command Options==========================================="
 baseurl: 
-detach: true
+detach: false
 # =======================4. Markdown Options================================================"
 # markdown you can set to rdiscount 来作为markdown解析引擎.
 markdown:      kramdown
@@ -43,3 +43,9 @@ comments:
   provider: duoshuo
   duoshuo: 
     short_name: limix
+# =======================Author info========================================================"
+author:
+  name: limix
+  email: coollimix@sina.com
+  github: 24king
+
