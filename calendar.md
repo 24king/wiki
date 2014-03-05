@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 个人日历
+title: Calendar
 ---
 
 {% include JB/setup %}
