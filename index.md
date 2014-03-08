@@ -13,6 +13,6 @@ needComment: no
 </ul>
 </div>
 
-<div style="float:left;width:20%">
-  <img src="{{site.baseurl}}/assets/pic/QR.png"/>
+<div style="float:right;width:100px;">
+  <img src="{{site.baseurl}}/assets/pic/QR.png" style="width:80px;height:80px;"/>
 </div>
