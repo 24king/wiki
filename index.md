@@ -3,10 +3,16 @@ layout: default
 title: LIMIX's PKM
 needComment: no
 ---
-文章列表
 
+<div style="float:left;width:75%">
+文章列表
 <ul>
 {% for post in site.posts %}
 <li>{{post.date | date_to_string}} <a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
 {%endfor%}
 </ul>
+</div>
+
+<div style="float:left;width:20%">
+  <img src="{{site.baseurl}}/assets/pic/QR.png"/>
+</div>
