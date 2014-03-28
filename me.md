@@ -4,7 +4,7 @@ title: ABOUT ME
 ---
 #### about ####
 
-1. {{ site.author.name }} {{ site.author.email }}
+1. {{ site.author.name }} <{{ site.author.email }}>
 1. [github](http://github.com/{{site.author.github}} {{site.author.github}})
 
 
