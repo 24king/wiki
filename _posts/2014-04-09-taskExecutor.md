@@ -6,7 +6,7 @@ tags: spring multiThread
 ## 背景交代
 今天写代码,但是突然发现进程调度的时候,同一个任务被调度执行了两次,这个就有问题了,于是就再次研究一下这个Spring所提供的关于,异步执行和多任务调度的机制了.突然发现说自己会写后台代码,但是自己对于有些机制的了解还是不够的.了解框架就是了解他为你设计的机制,实现你所需要的策略来完成你要完成的事情.
 
-		框架我的理解就是:为了实现一件事情,框架提供了一套机制,让调用着实现自己相关的策略,更好的在体制内做事情.这就是框架.
+		框架我的理解就是:为了实现一件事情,框架提供了一套机制,让调用者实现自己需要的相关的策略,更好的在体制内做事情.这就是框架.
 
 ## 基本概念 
 
@@ -57,9 +57,61 @@ Quartz Scheduler
 
 ## 使用TaskExecutor
 
+	import org.springframework.core.task.TaskExecutor;
+	
+	public class TaskExecutorExample {
+	
+	    private class MessagePrinterTask implements Runnable {
+		      private String message;
+			      public MessagePrinterTask(String message) {
+					      this.message = message;
+				  }
+				  
+				  public void run() {
+				      System.out.println(message);
+				  }
+
+		}
+
+		private TaskExecutor taskExecutor;
+
+		public TaskExecutorExample(TaskExecutor taskExecutor) {
+			this.taskExecutor = taskExecutor;
+		}
+		public void printMessages() {
+			for(int i = 0; i < 25; i++) {
+				taskExecutor.execute(new MessagePrinterTask("Message" + i));
+			}
+		}
+	}
+
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <property name="corePoolSize" value="5" />
+	  <property name="maxPoolSize" value="10" />
+	  <property name="queueCapacity" value="25" />
+	</bean>
+	<bean id="taskExecutorExample" class="TaskExecutorExample">
+	  <constructor-arg ref="taskExecutor" />
+	</bean>
 
 
+## The Spring TaskScheduler abstraction
 
+	public interface TaskScheduler {
+	
+		  ScheduledFuture schedule(Runnable task, Trigger trigger);
+
+		  ScheduledFuture schedule(Runnable task, Date startTime);
+
+		  ScheduledFuture scheduleAtFixedRate(Runnable task, Date startTime, long period);
+
+		  ScheduledFuture scheduleAtFixedRate(Runnable task, long period);
+
+		  ScheduledFuture scheduleWithFixedDelay(Runnable task, Date startTime, long delay);
+
+		  ScheduledFuture scheduleWithFixedDelay(Runnable task, long delay);
+	}
+	
 
 
 [Spring](http://docs.spring.io/spring/docs/3.0.x/spring-framework-reference/html/scheduling.html)
