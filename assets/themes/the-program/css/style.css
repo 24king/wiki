@@ -575,8 +575,9 @@ pre {
 }
 pre {
   color: #264c72;
-  background: linear-gradient(#d8ebf8, #d0e3ef) repeat scroll 0 0 rgba(0, 0, 0, 0);
-  border: 1px solid #f0f0e3;
+  background: linear-gradient(#d8ebf8, #d0e3ef) repeat scroll 0 0 rgba(0, 0, 0, 0)
+  border: 1px solid #000000;
+
   font-family: consolas, monaco, monospace;
   margin-left: 0;
   margin-right: 0;
