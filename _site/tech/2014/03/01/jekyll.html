@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>jekyll搭建过程记录</title>
+	<meta name="author" content="limix">
+	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="jekyll搭建过程记录" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo" style="margin-left: 20px;"><a href="/"></a></li>
+						<li class=""><a href="/">HOME</a></li>
+						<li class="page"><a href="/pages.html">pages</a></li>
+						<li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class=""><a href="/calendar.html">calendar</a></li>
+						<li class=""><a href="/me.html">About me</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body" style="margin-left: 100px; margin-right: 100px;">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					<h1 id="jekyll">jekyll搭建过程记录</h1>
+
+<h2 id="section">背景交代</h2>
+<p>大学的时候做毕业设计的时候,和导师聊到了信息管理系统,老师和说到了,知识管理系统,当时也就记下了这个概念,后期也就慢慢自己研究研究,
+渐渐的也就想着应该有一个自己的管理系统来着,由于linux对我的影响很大,vim体系更是让我爱不释手,于是就在原先的基础上开始慢慢的想办
+法集成系统.机缘巧合的开始用vimwiki来管理自己在工作和生活中的一些知识,而且最后深深的觉得这个系统还真的很不错.可是随着时间的推移,
+其局限性也慢慢的显现出来了,第一个原因就是服务器集成和支持不足,也由于我机缘巧合的使用了firefox的一个优秀插件,markdown来写邮件,
+通过对markdown的了解,我找到了GitHub.慢慢的也就找到了jekyll,到现在这个时候,就一个感觉呀,相见恨晚.</p>
+
+<h2 id="jekyll-1">jekyll搭建</h2>
+<p>… 这个是之前搭建的,LIMIX TODO</p>
+
+<h2 id="jekyll-">jekyll 扩展</h2>
+<ol>
+  <li>
+    <p>使用disqus来扩展博客的社会化评论系统.</p>
+
+    <p>作为社会化评论系统,想到了平时使用别人的评论系统,看一下源代码,顺利的找到了国内的多说,集成进来非常的简单.
+ 虽然说社会化评论系统都很牛逼,但是我在想应该还有一个系统比这个更牛逼的产品,就是我一直在用的,diigo,原理和disqus应该是一样的,但是其云端服务要更丰富还.</p>
+
+    <p>TODO: 将diigo的理念集成到自己的博客系统中来,就想集成disqus和多说一样,也为diigo做一下宣传当时.</p>
+
+    <p>DONE: 我能想到的,原来diigo已经想到了,发现diigo已经提供了API,并且支持一些博客系统可以使用他的这个特性,可是就目前而言,他还是不能支持jekyll的.</p>
+
+    <p>TODO: 既然这里写文章可以使用markdown语法,那么为什么我的评论系统不能像github一样也使用markdown语法来完成评论的书写了,那样不是很好么?</p>
+
+    <p>TODO: 这里我不是每个页面都是需要使用评论系统的,如果我传递了特定的参数,默认是需要评论的,但是我也可以制定页面不需要评论.</p>
+  </li>
+  <li>
+    <p>制作个人博客网站的导航系统.</p>
+
+    <p>因为某种原因,就找到了jekyll的<a href="http://jekyllbootstrap.com/usage/jekyll-quick-start.html" title="jekyll引导"><strong>bootstrap</strong></a>工程,然后就根据工程上的一些介绍来更深入的了解一些jekyll的功能.</p>
+  </li>
+  <li>
+    <p>制作个人网站的样式系统.</p>
+  </li>
+</ol>
+
+<h2 id="jekyll-common-use">jekyll common use</h2>
+<ol>
+  <li>Front-matter: 
+    <ol>
+      <li>predefined Golbal Variables:{“layout”,”permalink”,”published”,”category”,”categories”,”tags”}</li>
+      <li>Custom Variables: {“”}</li>
+      <li>predefined variables for posts:{“date”} the date can be used to ensure correnct sorting of posts.</li>
+    </ol>
+  </li>
+  <li>YAML: list: </li>
+</ol>
+
+<hr />
+
+<h2 id="section-1">参考信息</h2>
+
+<h3 id="markdown">markdown渲染引擎</h3>
+
+<p>渲染引擎主要用来将markdown文本渲染成HTML文档,完成文档render转换的功能.</p>
+
+<ol>
+  <li>maruku 比较老的渲染引擎;</li>
+  <li>BlueCloth</li>
+  <li>RDiscount</li>
+  <li><a href="https://github.com/blog/832-rolling-out-the-redcarpet" title="Redcarpet"><strong>Redcarpet</strong></a>
+ 其中的Redcarpet渲染引擎效率比较高,而maruku比较老,效率低.而BlueCloth和RDiscount比之前的渲染高两个数量级吧.这些也不清楚,别人说这个好就用这个了呗.</li>
+</ol>
+
+				</div>
+				<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"limix"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js'; 
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<a class="bshareDiv" href="http://www.bshare.cn/share">分享</a>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#uuid=2e6047f1-8d6a-4814-a2f7-dbc6a99261dd&amp;style=1&amp;bp=qqmb,bsharesync,sinaminiblog,qzone,189share,sohuminiblog,renren,xinhuamb,tianya,shouji,ifengmb,neteasemb,qqxiaoyou,kaixin001,weixin,douban,qqim"></script>
+<!-- Duoshuo Comment END -->
+
+			</div>
+		</div>
+	</div>
+	<footer class="the-footer"></footer>
+</div>
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	// load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/tech/2014/03/01/jekyll.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+</body>
+</html>
+
