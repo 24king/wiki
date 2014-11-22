@@ -175,7 +175,6 @@ There are three methods for the git. *git,http,ssh*
 	
 	*repo.wisemapping.org[0: 192.241.203.149]: errno=Connection timed out*
 	>ping 192.241.203.149                                                                                                                       
-	{{{
 	PING 192.241.203.149 (192.241.203.149) 56(84) bytes of data.
 	64 bytes from 192.241.203.149: icmp_seq=1 ttl=51 time=275 ms
 	64 bytes from 192.241.203.149: icmp_seq=2 ttl=51 time=288 ms
@@ -185,7 +184,6 @@ There are three methods for the git. *git,http,ssh*
 	--- 192.241.203.149 ping statistics ---
 	6 packets transmitted, 5 received, 16% packet loss, time 5121ms
 	rtt min/avg/max/mdev = 275.712/298.015/348.090/26.190 ms
-	}}}		
 	fatal: unable to connect a socket (Connection timed out)
 	*LIMIX_TOIMPROVE: may by there is something wrong with the port for the git protocol*
 
