@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 随记
+title: linux.network.ssh
 tags: linux network ssh
 ---
 # 背景 # 
