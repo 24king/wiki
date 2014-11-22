@@ -257,3 +257,5 @@ There are three methods for the git. *git,http,ssh*
 	git clone limix-wiseorg git://repo.wisemapping.org/~coollimixsinacom/wisemapping/limix-wiseorg.git
 	进入对应的目录,设置一下,Okey,Success.
 
+# ssh开启代理#
+> ssh -qTfnN -D 7070 [[name@proxy.94cat.com]]

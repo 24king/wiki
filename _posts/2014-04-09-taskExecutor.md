@@ -1,7 +1,7 @@
 ---
 layout: default
-title: taskExecutor
-tags: spring multiThread
+title: java.spring.multiThread.taskExecutor
+tags: java spring multiThread
 ---
 ## 背景交代
 今天写代码,但是突然发现进程调度的时候,同一个任务被调度执行了两次,这个就有问题了,于是就再次研究一下这个Spring所提供的关于,异步执行和多任务调度的机制了.突然发现说自己会写后台代码,但是自己对于有些机制的了解还是不够的.了解框架就是了解他为你设计的机制,实现你所需要的策略来完成你要完成的事情.
