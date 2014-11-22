@@ -1,0 +1,70 @@
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+		<title>LIMIX_PKM-gb2312</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body id="theBody">
+<div id="J_SiteNav" class="site-nav">  
+	<div id="J_SiteNavBd" class="site-nav-bd">
+		<ul id="J_SiteNavBdL" class="site-nav-bd-l">
+			<li id="J_LoginInfo" class="menu" data-spm="754894437">
+				<div id="J_LoginInfoHd" class="menu-hd">
+					<a href="" target="_top" class="h">Limix</a> 
+					<a href="" target="_top" class="h"></a> 
+					</div>
+			</li>	
+		</ul> 
+		<ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+	</div>
+</div>
+<div class="site-nav" id="J_SiteNav">
+<div id="page">
+	<div id="content-wrap">
+<h1 id="toc_1" class="justcenter">GB2312:  中文国际码，计算机内码;</h1>
+<blockquote>
+需要理解的有区位码,国际码,机内码... 区位码+20H=国际码,+128 = 机内码.
+</blockquote>
+<blockquote>
+是由我国国家标准总局1980年发布,1981年5月1日开始实施的一套国家标准. 信息交换用汉字编码字码集合.
+计算机内码,因为计算机中为了兼容ASCII码.汉字机内码的每个字都大于128.
+</blockquote>
+<blockquote>
+基本集共收入汉字6763个和非汉字图形字符683个,整个字符集分成94个区,每区94个位.
+126-33+1 = 94 总共就是94个区,94个位,兼容了ASCII码,区位码. 
+这个码是唯一的,不会有重码字,把码算成16进制的区位码,加上2020H,就得到国际码.
+国际码加上8080H,就得到了常用的计算机内码; 
+</blockquote>
+				 
+<hr />
+<p>
+1995年颁布GBK,与GB2312兼容.
+信息交换用汉字编码和汉字输入编码之间的关系是：
+在这里我们称为中文国际码,而区位码了,是使用的33--126 === 161-254
+区位码+20H = 中文国际码; 这样就可以兼容了ASCII码中的32个控制字符了;
+</p>
+
+<p>
+国际码的高位是0,这将与ASCII码相冲突,这会出现二义性,于是,汉字的机内码采用变形国际码,将最高位改为1,
+也就是加上128,因而汉字机内码的每个字节都大于128.这就解决了与西文字符的ASCII码相冲突的问题.
+</p>
+
+<p>
+根据不同哦哦那个的汉字输入方法,通过必要的输入设备向计算机输入汉字的编码,计算机接受到了之后,先转换成
+信息交换汉字编码字符,这时计算机就可以识别并处进行处理;汉字输出是先把机内码,转换成汉字编码,再发送到输出设备.
+<hr />
+</p>
+
+<p>
+输入码编码:
+输入输出过程：根据不同的汉字输入方法,通过必要的设备向计算机输入汉字的编码,计算机接受之后,先转换程信息交换
+用汉字编码字符,机内编码,这时计算机就可以识别并并行处理,汉字输出是先把机内码转换成汉字编码,再发送到输出设备.
+<hr />
+</p>
+</div>
+</div>
+<div id="footer"> Limix's reserved all the pages copyright. 2013-10-13 </div>
+</body>
+</html>
+</div>

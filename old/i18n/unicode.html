@@ -1,0 +1,77 @@
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+		<title>LIMIX_PKM-unicode</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body id="theBody">
+<div id="J_SiteNav" class="site-nav">  
+	<div id="J_SiteNavBd" class="site-nav-bd">
+		<ul id="J_SiteNavBdL" class="site-nav-bd-l">
+			<li id="J_LoginInfo" class="menu" data-spm="754894437">
+				<div id="J_LoginInfoHd" class="menu-hd">
+					<a href="" target="_top" class="h">Limix</a> 
+					<a href="" target="_top" class="h"></a> 
+					</div>
+			</li>	
+		</ul> 
+		<ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+	</div>
+</div>
+<div class="site-nav" id="J_SiteNav">
+<div id="page">
+	<div id="content-wrap">
+<h1 id="toc_1">Unicode</h1>
+<blockquote>
+Unicode是国际组织制定的可以容纳世界上所有文字和符号的字符编码方案.
+Unicode可分为编码方式和实现方式两个层次
+Unicode用数字来映射这些字符,最多可以容纳1114112个字符,或者码位. 码位就是可以分配给字符的数字.
+UTF-8,UTF-16,UTF-32都是将数字转换到程序数据的编码方案.
+</blockquote>
+<hr />
+<h2 id="toc_1.1" class="justcenter">1. 编码方式</h2>
+<p>
+Unicode字符集可以简写为UCS（Unicode Character Set), 早期的Unicode标准有UCS-2,
+UCS-4的说法.UCS-2用两个字节编码.
+   UCS-4根据最高位为0的最高字节分成2^7=128个group
+	次高字节分为 256个面plane
+	第三个字节分为256行 row
+	每行有256个码位cell
+group 0的 plane 0被称为BMP basic Multilingual Plane. UCS-4的BMP去掉前面两个零字节得到的就是UCS-2
+#每个plane有2^16=65536个码位,Unicode计划使用17个plane,一个17*65536个码位.
+</p>
+
+
+<h2 id="toc_1.2" class="justcenter">2. 实现方式</h2>
+
+<p>
+在Unicode中,我们有很多方式将数字表示成程序中的数据.包括utf-8,utf-16,utf-32
+UTF UCS Transformation Format，Unicode字符集转换格式.即怎样将Unicode定义的数字换成程序中的数据.
+</p>
+<ol>
+<li>
+UTF-8 UTF-8以字节为单位对Unicode进行编码.从Unicode到UTF-8的编码方式如下:
+  Unicode编码（16进制）		UTF-8字节流(二进制）
+  000000 - 00007F			0xxxxxxx
+  000080 - 0007FF			110xxxxx 10xxxxxx
+  000800 - 00FFFF			1110xxxx 10xxxxxx 10xxxxxx
+  010000 - 10FFFF			11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+  UTF-8特点是对不同范围内的字符使用不同长度的编码.对于0x00-0x7F之间的字符,UTF-8编码与ASCII编码完全相同.UTF-8编码的最大长度是4个字节.从上表可以看出,4字节模板有21个x,即可以容纳21位二进制数字,Unicode的最大码位0x10FFFF也只有21位
+
+</ol>
+
+
+<h2 id="toc_1.3" class="justcenter">非Unicode环境</h2>
+<p>
+   在非Unicode环境下,由于不同国家和地区采用的字符集不一致,很可能出现无法正常显示所有字符的情况.针对这种情况,微软公司使用了代码页Codepage转换表技术.即通过指定的转换表将非Unicode编码转换成统一字符对应系统内部使用的Unicode编码.
+   可以在语言和区域设置中选择一个代码页作为非Unicode编码所采用的默认编码方式.如936为简体中文GBK,950为正文中文Big5.
+   在这种情况下,一些非英语的欧洲语言编写的软件和文档很可能出现乱码.而将代码页设置为相应的语言就可以了,而这个时候中文会出现问题.
+   为了避免这种情况,完全采用统一编码才是解决之道.
+</p>
+</div>
+</div>
+<div id="footer"> Limix's reserved all the pages copyright. 2013-10-13 </div>
+</body>
+</html>
+</div>

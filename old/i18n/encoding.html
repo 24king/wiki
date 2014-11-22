@@ -1,0 +1,178 @@
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+		<title>LIMIX_PKM-encoding</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body id="theBody">
+<div id="J_SiteNav" class="site-nav">  
+	<div id="J_SiteNavBd" class="site-nav-bd">
+		<ul id="J_SiteNavBdL" class="site-nav-bd-l">
+			<li id="J_LoginInfo" class="menu" data-spm="754894437">
+				<div id="J_LoginInfoHd" class="menu-hd">
+					<a href="" target="_top" class="h">Limix</a> 
+					<a href="" target="_top" class="h"></a> 
+					</div>
+			</li>	
+		</ul> 
+		<ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+	</div>
+</div>
+<div class="site-nav" id="J_SiteNav">
+<div id="page">
+	<div id="content-wrap">
+<hr />
+<p>
+如果想深入的理解编码的错误的化，需要了解常见的集中编码方式；
+还要掌握HTTP协议的形式，如果了解HTTP协议比较清楚的化，其他的就相对而言简单了；
+<hr />
+从第一次访问一个jsp页面开始，到这个页面被发送到客户端，这个Jsp页面要经过三次编码转换： 
+</p>
+
+<ol>
+<li>
+第一阶段是jsp编译成.java，它会根据pageEncoding的设定读取jsp,结果是由指定的编码方案翻
+
+</ol>
+<p>
+译成统一的UTF-8 JAVA源码(即.java),如果pageEncoding设定错 了，或没有设定，出来的就是中文乱码。
+</p>
+
+<ol>
+<li>
+第二阶段是由JAVAC的JAVA源码至java byteCode的编译,不论JSP编写时候用的是
+
+</ol>
+<p>
+什么编码方案，经过这个阶段的结果全部是UTF-8的encoding的java源码。 
+JAVAC用UTF-8的encoding读取java源码，编译成UTF-8 encoding的二进制码
+(即.class)，这是JVM对常数字串在二进制码（java encoding）内表达的规范。 
+</p>
+
+<ol>
+<li>
+第三阶段是Tomcat(或其的application container)载入和执行阶段二的来的JAVA
+
+</ol>
+<p>
+二进制码,输出的结果,也就是在客户端见到的,这时隐藏在阶段一和阶段二的参数
+contentType就发挥了功效 
+</p>
+
+<h3 id="toc_0.0.1">所以最终的解决方案为：</h3>
+<p>
+在jsp页面设置pageEncoding或者contentType的其中一个为支持中文的编码格式
+(如utf-8，gbk,gb2312)。因为设置一个的话，另一个默认会和它一样。 
+如果两个都设置的话，必须保证两个都是支持中文编码（不一定要一样）
+最佳建议设置如下： 
+&lt;%@ page language="java" import="java.util.*" pageEncoding="utf-8"%&gt; 
+&lt;%@ page contentType="text/html;charset=utf-8"%&gt; 
+</p>
+
+<hr />
+<p>
+关于乱码的问题:
+解决ActionForm的乱码问题:
+解决这个问题的方法很多,最容易的就是使用过滤器，所谓过滤器就是在客户端
+提交数据后，在交由服务器端处理之前所执行的一段服务端代码（一般为Java）
+一个过滤器是一个实现了javax.servlet.Filter接口的类EncodingFilter
+</p>
+<pre>
+package filter;
+import java.io.IOException;
+
+import javax.servlet.*;
+public class EncodingFilter implements Filter
+{
+    public void destroy(){}
+    pubilc void doFilter(ServletRequest request,ServletResponse,
+         FileterChain chain)throws IOException,ServletException
+    {
+        request.setCharacterEncoding("GBK");
+        chain.doFilter(request,response);
+    }
+    public void init(FilterConfig filterConfig)throws ServletException{
+    }
+}
+将这个Filter给配置到应用程序中去web.xml
+&lt;filter&gt;
+    &lt;filter-name&gt;EncodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;filter.EncodingFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;EncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+JSP页面显示的编码有两个地方需要设置：
+&lt;%@ page language="java" import="java.util.*" pageEncoding="utf-8"%&gt;
+&lt;%@ page ContentType="text/html;charset="utf-8"%&gt;
+</pre>
+
+<p>
+其中的pageEncoding指的是jsp文件本身在本地保存时的编码方式.
+而ContentType中的charset指的是页面内容给客户端时所使用的编码;返回的是
+  text/html，这里这个内容是给浏览器使用的.
+</p>
+<h3 id="toc_0.0.2">post方式传值乱码：</h3>
+<p>
+在这里post和get不同在于get是将信息放在了url中，而post放在了html的head里
+由于post方式传值是通过request存储的，在另一个页面也是通过request.get-
+Parameter(String name)来提取信息，所以这种情况下的乱码主要是
+因为request存储信息的编码设置导致的。post提交时，如果没有设置提交的编码
+格式.则会以iso-8859-1方式进行提交,接受的jsp却以utf-8的方式接受。所以使
+用如下语句即可得到单个正确的中文字符串：
+</p>
+<pre>
+   String str =new String(request.
+   getParameter("something").getBytes("ISO-8859-1"),"utf-8")；
+</pre>
+
+<p>
+解决方法： 
+在接收页面设置request.setCharacterEncoding("UTF-8")。最好通过过滤器实现
+每个页面都设置为request.setCharacterEncoding("UTF-8")。
+当你设置了这个之后,页面就会将你的请求本地编码转换为指定的UTF－8编码格式;
+这样在客户端就会以UTF－8的方式提交你的代码到后台,后台就不必转码了再;
+</p>
+
+<p>
+疑问：这里request.setCharacterEncoding("UTF-8"),这个request是封装了请求
+的，用户提交到服务器端之后,对字节码进行了一个默认的解码，可以这样理解吗
+那么假如charset=utf-8,客户端将以什么编码来提交了，post时候，如果没有给
+出编码方式，那么就默认为iso-8859-1的编码来提交，那么我就不明白了，到服
+务器这边
+</p>
+
+<p>
+如果要深入的理解提交的过程，你应该努力学习相关的HTTP协议，那里面应该有
+对这一块给出一个比较详细的回答的.
+</p>
+
+<h3 id="toc_0.0.3" class="justcenter">get方式传值乱码：</h3>
+
+<p>
+get方式传值有两种，一种是表单get传值，另一种是url地址传值（实质上这两种
+方式都是通过url参数的方式传值）。 
+(1)表单方式get传值： 
+表单方式get传值的编码过程为,首先浏览器根据页面的charset编码方式对传值进
+行编码，然后提交至服务器交给tomcat，tomcat对这些信息进行解码时,采用的解
+码方式是由server.xml文件中的URIEncoding设置决定的，也就是说，当我们使用
+命令request.getParameter("")获取表单参数值时,得到的字符串,经过了charset
+的编码和URIEncoding的解码.
+由上所知，只要charset的编码和URIEncoding的解码一致，并且支持中文,就能保
+证没有乱码。 
+</p>
+
+<p>
+设置URIEncoding的方法如下：
+修改Tomcat/conf
+</p>
+
+<h3 id="toc_0.0.4">encodeURI</h3>
+</div>
+</div>
+<div id="footer"> Limix's reserved all the pages copyright. 2013-10-13 </div>
+</body>
+</html>
+</div>

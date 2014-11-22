@@ -1,0 +1,60 @@
+<html>
+<head>
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+		<title>LIMIX_PKM-i18n</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body id="theBody">
+<div id="J_SiteNav" class="site-nav">  
+	<div id="J_SiteNavBd" class="site-nav-bd">
+		<ul id="J_SiteNavBdL" class="site-nav-bd-l">
+			<li id="J_LoginInfo" class="menu" data-spm="754894437">
+				<div id="J_LoginInfoHd" class="menu-hd">
+					<a href="" target="_top" class="h">Limix</a> 
+					<a href="" target="_top" class="h"></a> 
+					</div>
+			</li>	
+		</ul> 
+		<ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+	</div>
+</div>
+<div class="site-nav" id="J_SiteNav">
+<div id="page">
+	<div id="content-wrap">
+<p>
+利用Eclipse编辑中文资源
+================================================================================
+如果经常使用Struts，并做过国际化操作的人来说，对于中文资源处理应该不会陌生.
+application_zh_CN.properties
+application_en.properties 
+================================================================================
+Eclipse中的Java类型文件的编码的默认设置是GBK，但是对Properties资源文件的编码的默
+认设置是ISO-8859-1。所以编辑Java文件中的中文不会出现问题，但编辑Properties资源文
+件中的中文会出现问题.
+================================================================================
+window--preference--General--Editors--Context Types:
+================================================================================
+REFERENCE:
+1. native2ascii--本地码--ASCII码    
+   native2ascii [options] [inputfile [outputfile]]
+   Java工具只能处理含有Latin-1和/或 Unicode编码字符的文件.
+   -reverse 执行相反的操作：将含 Latin-1 和/或 Unicode 编码字符的文件转换成含本地编码字符的文件：
+   针对使用这个native2ascii一两个处理起来也没有什么关系，但是如果多了的话，那么就有问题了.
+2. Eclipse,有两个插件,可以用来处理资源文件.
+   JInto 0.8.0		<a href="http://www.guh-software.de/jinto.html">http://www.guh-software.de/jinto.html</a>
+			<a href="http://www.guh-software.de/jinto/JIntoGettingStarted.pdf">http://www.guh-software.de/jinto/JIntoGettingStarted.pdf</a>
+   Properties Editor	<a href="http://propedit.sourceforge.jp/index_en.html">http://propedit.sourceforge.jp/index_en.html</a>
+3. Eclipse Plugin安装的方法.
+   分别以links方式安装两个插件，启动Eclipse，切换到哦Perference
+4. XML文件，对应XML默认编码为UTF-8，但如果在xml声明中可以指定其编码，Eclipse在读
+   取XML会首先根据其声明来设置这个文件的编码，如果声明中没有指定其编码，那么会采
+   用utf-8编码来读取这个文件.
+================================================================================
+</p>
+</div>
+</div>
+<div id="footer"> Limix's reserved all the pages copyright. 2013-10-13 </div>
+</body>
+</html>
+</div>
